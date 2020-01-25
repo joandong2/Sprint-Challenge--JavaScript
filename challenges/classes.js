@@ -1,20 +1,20 @@
 // 1. Copy and paste your prototype in here and refactor into class syntax.
 
-/* 
-function CuboidMaker(length, width, height) {
-    this.length = length;
-    this.width = width;
-    this.height = height;
-}
-CuboidMaker.prototype.volume = function() {
-    return this.length * this.width * this.height;
-} 
-CuboidMaker.prototype.surfaceArea = function() {
-    return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height));
-} 
+/**
+    function CuboidMaker(length, width, height) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+    CuboidMaker.prototype.volume = function() {
+        return this.length * this.width * this.height;
+    } 
+    CuboidMaker.prototype.surfaceArea = function() {
+        return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height));
+    } 
 
-const cuboid = new CuboidMaker(4, 5, 5); 
-*/
+    //const cuboid = new CuboidMaker(4, 5, 5); 
+**/
 
 class CuboidMaker {
     constructor(attrs) {
@@ -51,7 +51,7 @@ class CubeMaker extends CuboidMaker {
     }
 
     volume() {
-        return (this.length * this.length * this.length);
+        return this.length * this.length * this.length;
     }
 
     surfaceArea() {
@@ -63,5 +63,5 @@ const cube = new CubeMaker({
     length: 4
 });
 
-console.log(cube.volume()); 
-console.log(cube.surfaceArea());
+console.log(cube.volume()); // 64
+console.log(cube.surfaceArea()); // 96

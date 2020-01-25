@@ -6,7 +6,7 @@
   * The last parameter accepts a callback
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
-function consume(a, b, cb) {
+const consume = (a, b, cb) => {
     return cb(a,b);
 }
 
@@ -26,14 +26,13 @@ console.log(consume(2, 2, add)); // 4
 console.log(consume(10, 16, multiply)); // 160
 console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
-
 // ==== Closures ==== 
 
 // Explain in your own words why nestedfunction can access the variable internal.
 
 // Explanation: 
 
-// It is because nestedFunction() is a closure..
+// It is because nestedFunction() scope has access to the outer scope and its variables, thus after myFunction() returned, the nestedFunction() keeps a reference of the internal variable, and prevent the outer function to destroy that reference since it has no access to the inner function.
 
 const external = "I'm outside the function";
 

@@ -74,7 +74,7 @@ const graduates = [
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = graduates.map((item) => {
     return item.university;
-}).sort((a, b) => (a>b) ? 1 : -1);
+}).sort((a, b) => (a > b) ? 1 : -1);
 console.log(universities);
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
@@ -128,7 +128,6 @@ console.log(displayNames);
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
 
 */
-
 const lowCaseAnimalNames = zooAnimals.map((item) => {
     return item.animal_name.toLowerCase();
 });
