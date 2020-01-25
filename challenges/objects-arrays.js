@@ -72,7 +72,9 @@ const graduates = [
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array. This will be an array of strings.
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
-const universities = [];
+const universities = graduates.map((item) => {
+    return item.university;
+}).sort((a, b) => (a>b) ? 1 : -1);
 console.log(universities);
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
@@ -81,11 +83,15 @@ The resulting contact information strings should have a space between the first 
 "Josh josh@example.com"
 
 Log the result of your new array. */
-const contactInfo = [];
+const contactInfo = graduates.map((item) => {
+    return `${item.first_name} ${item.email}`;
+});
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
+const unisWithUni = graduates.filter((item) => {
+    return item.university.includes('Uni');
+}).map((item) => item.university);
 console.log(unisWithUni);
 
 
@@ -112,6 +118,9 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
+zooAnimals.forEach((item) => {
+    displayNames.push(`Name: ${item.animal_name}, Scientific: ${item.scientific_name}`);
+});
 console.log(displayNames);
 
 /* Request 2: .map()
@@ -120,7 +129,9 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames = [];
+const lowCaseAnimalNames = zooAnimals.map((item) => {
+    return item.animal_name.toLowerCase();
+});
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -128,7 +139,9 @@ console.log(lowCaseAnimalNames);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = [];
+const lowPopulationAnimals = zooAnimals.filter((item) => {
+    return item.population < 5;
+});
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
@@ -136,9 +149,12 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
+const populationTotal = zooAnimals.map((item) => {
+    return item.population;
+}).reduce((total, item) => {
+    return total + item;
+})
 console.log(populationTotal);
-
 
 /*
 
